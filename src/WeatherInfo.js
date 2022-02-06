@@ -1,25 +1,25 @@
 import React from "react";
+import WeatherIcon from "./WeatherIcon";
 
 function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="row">
-        <div className="col-6 today-weather">
-          <img
-            src={`http://openweathermap.org/img/wn/${props.data.icon}@2x.png`}
-            alt={props.data.description}
-          />
+        <div className="col-8 today-weather">
+          <WeatherIcon code={props.data.icon} size={40} />
           <span className="today-temperature">{props.data.temperature}</span>
           <span className="unit">°C</span>
-          <div className="today-parameter">
+          <span className="today-parameter">
             <ul>
-              <li> Precipitation: precipitation% </li>
               <li> Humidity: {props.data.humidity}% </li>
-              <li> Wind: {props.data.wind} mph </li>
+              <li> Wind: {props.data.wind} km/h </li>
+              <li>
+                Temperature-range: {props.data.temp_min}/{props.data.temp_max}
+              </li>
             </ul>
-          </div>
+          </span>
         </div>
-        <div className="col-6">
+        <div className="col-4">
           <h1>
             {props.data.city}, {props.data.country}
           </h1>

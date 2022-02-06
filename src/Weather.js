@@ -10,7 +10,9 @@ function Weather(props) {
     const today = new Date(response.data.dt * 1000);
     setWeatherData({
       ready: true,
-      temperature: response.data.main.temp,
+      temperature: Math.round(response.data.main.temp),
+      temp_min: Math.round(response.data.main.temp_min),
+      temp_max: Math.round(response.data.main.temp_max),
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
@@ -53,11 +55,15 @@ function Weather(props) {
               />
             </div>
             <div className="col-3">
-              <input type="submit" value="search" className="btn btn-primary" />
+              <input
+                type="submit"
+                value="search"
+                className="btn btn-primary w-100"
+              />
             </div>
           </div>
         </form>
-        <WeatherInfo data={weatherData} />;
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {

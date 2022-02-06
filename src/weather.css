@@ -1,11 +1,12 @@
 .weather {
-  margin-top: 40px;
-  padding: 20px 10px;
+  margin: 0px auto;
+  padding: 20px 30px;
   font-family: arial, sans-serif;
   color: rgb(112, 117, 122);
   border: 1px solid #ebebeb;
   font-weight: 400;
   font-size: 16px;
+  max-width: 600px;
 }
 
 .weather form {
@@ -17,20 +18,14 @@
 }
 .weather ul {
   margin: 0;
+  padding: 0;
   font-weight: 400;
   line-height: 16px;
 }
 .weather .today-weather {
   display: inline-block;
+  padding-top: 0;
   vertical-align: top;
-}
-.weather img {
-  display: inline-block;
-  font-weight: 400;
-  height: 60px;
-  margin-top: 0px;
-  vertical-align: top;
-  width: 60px;
 }
 .weather .today-temperature {
   font-size: 48px;
@@ -40,6 +35,7 @@
   font-family: "Google Sans", arial, sans-serif;
   font-weight: 400;
   line-height: 60px;
+  padding-left: 10px;
 }
 .weather .unit {
   color: rgb(32, 33, 36);
@@ -51,10 +47,9 @@
   display: inline-block;
   font-size: 12px;
   height: 60px;
-  margin-top: 0;
   text-align: start;
-  margin-top: 6px;
-  vertical-align: top;
+  margin: 0px auto;
+  padding: 20px 10px;
 }
 .weather h1 {
   color: rgb(32, 33, 36);
