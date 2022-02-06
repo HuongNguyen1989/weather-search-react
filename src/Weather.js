@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./weather.css";
 import axios from "axios";
+import WeatherInfo from "./WeatherInfo";
 
 function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     const today = new Date(response.data.dt * 1000);
     setWeatherData({
@@ -23,70 +25,39 @@ function Weather(props) {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
   function search() {
     const apiKey = "7e62f7501b593a16608f7f0c6a1d755f";
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
     return (
-      <div className="container">
-        <div className="weather">
-          <form>
-            <div className="row">
-              <div className="col-9">
-                <input
-                  type="search"
-                  placeholder="Enter a city"
-                  className="form-control"
-                  autoFocus="on"
-                />
-              </div>
-              <div className="col-3">
-                <input
-                  type="submit"
-                  value="search"
-                  className="btn btn-primary"
-                />
-              </div>
-            </div>
-          </form>
+      <div className="weather">
+        <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-6 today-weather">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
-                alt={weatherData.description}
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city"
+                className="form-control"
+                autoFocus="on"
+                onChange={handleCityChange}
               />
-              <span className="today-temperature">
-                {weatherData.temperature}
-              </span>
-              <span className="unit">°C</span>
-              <div className="today-parameter">
-                <ul>
-                  <li> Precipitation: precipitation% </li>
-                  <li> Humidity: {weatherData.humidity}% </li>
-                  <li> Wind: {weatherData.wind} mph </li>
-                </ul>
-              </div>
             </div>
-            <div className="col-6">
-              <h1>
-                {weatherData.city}, {weatherData.country}
-              </h1>
-              <ul className="today-description">
-                <li> {weatherData.date} </li>
-                <li>{weatherData.description} </li>
-              </ul>
+            <div className="col-3">
+              <input type="submit" value="search" className="btn btn-primary" />
             </div>
           </div>
-        </div>
-        <footer>
-          <p>
-            This project was coded by <a href="">Huong Nguyen </a>
-            and is <a href="">open-sourced on GitHub</a>
-          </p>
-        </footer>
+        </form>
+        <WeatherInfo data={weatherData} />;
       </div>
     );
   } else {
@@ -94,5 +65,4 @@ function Weather(props) {
     return "Loading...";
   }
 }
-
 export default Weather;
