@@ -41,12 +41,19 @@
   font-weight: 400;
   line-height: 60px;
 }
+.weather .unit {
+  color: rgb(32, 33, 36);
+  font-size: 16px;
+  line-height: 24px;
+  vertical-align: 20px;
+}
 .weather .today-parameter {
   display: inline-block;
   font-size: 12px;
   height: 60px;
   margin-top: 0;
   text-align: start;
+  margin-top: 6px;
   vertical-align: top;
 }
 .weather h1 {
