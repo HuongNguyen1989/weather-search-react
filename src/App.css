@@ -4,3 +4,7 @@
 .App {
   margin-top: 20px;
 }
+
+.App a {
+  text-decoration: none;
+}

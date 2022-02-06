@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 function WeatherInfo(props) {
   return (
@@ -7,15 +8,11 @@ function WeatherInfo(props) {
       <div className="row">
         <div className="col-8 today-weather">
           <WeatherIcon code={props.data.icon} size={40} />
-          <span className="today-temperature">{props.data.temperature}</span>
-          <span className="unit">°C</span>
+          <WeatherTemperature celsius={props.data.temperature} />
           <span className="today-parameter">
             <ul>
               <li> Humidity: {props.data.humidity}% </li>
               <li> Wind: {props.data.wind} km/h </li>
-              <li>
-                Temperature-range: {props.data.temp_min}/{props.data.temp_max}
-              </li>
             </ul>
           </span>
         </div>
