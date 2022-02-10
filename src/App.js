@@ -6,9 +6,10 @@ function App() {
     <div className="App">
       <Weather defaultCity="hanoi" />
       <footer>
-        <p>
+        <p className="mt-1">
           This project was coded by <a href="/">Huong Nguyen </a>
-          and is <a href="/">open-sourced on GitHub</a>
+          and is <a href="/">open-sourced on GitHub </a>and
+          <a href="/"> hosted on Netlify </a>
         </p>
       </footer>
     </div>

@@ -31,10 +31,11 @@ function WeatherTemperature(props) {
       <span className="WeatherTemperature">
         <span className="today-temperature">{Math.round(Fahrenheit)}</span>
         <span className="unit">
+          °
           <a href="/" onClick={showCelsius}>
-            °C|
+            C|
           </a>
-          <a href="/">°F</a>
+          °<a href="/">F</a>
         </span>
       </span>
     );
