@@ -8,8 +8,23 @@ function App() {
       <footer>
         <p className="mt-1">
           This project was coded by <a href="/">Huong Nguyen </a>
-          and is <a href="/">open-sourced on GitHub </a>and
-          <a href="/"> hosted on Netlify </a>
+          and is{" "}
+          <a
+            href="https://github.com/HuongNguyen1989/weather-search-react"
+            target="_blank"
+            rel="noreferrer"
+          >
+            open-sourced on GitHub{" "}
+          </a>
+          and
+          <a
+            href="https://frosty-torvalds-77a814.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            hosted on Netlify{" "}
+          </a>
         </p>
       </footer>
     </div>
