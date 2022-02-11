@@ -12,13 +12,14 @@ function WeatherTemperature(props) {
     event.preventDefault();
     setUnit("Celsius");
   }
+  let Fahrenheit = (props.celsius * 9) / 5 + 32;
 
   if (unit === "Celsius") {
     return (
       <span className="WeatherTemperature">
         <span className="today-temperature">{props.celsius}</span>
         <span className="unit">
-          <a href="/">°C|</a>
+          °C |
           <a href="/" onClick={showFahrenheit}>
             °F
           </a>
@@ -26,16 +27,15 @@ function WeatherTemperature(props) {
       </span>
     );
   } else {
-    let Fahrenheit = (props.celsius * 9) / 5 + 32;
     return (
       <span className="WeatherTemperature">
         <span className="today-temperature">{Math.round(Fahrenheit)}</span>
         <span className="unit">
           °
           <a href="/" onClick={showCelsius}>
-            C|
-          </a>
-          °<a href="/">F</a>
+            C
+          </a>{" "}
+          | °F
         </span>
       </span>
     );

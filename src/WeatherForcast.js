@@ -6,6 +6,7 @@ import axios from "axios";
 function WeatherForcast(props) {
   const [loaded, setLoaded] = useState(false);
   const [forcast, setForcast] = useState(null);
+
   function handleResponse(response) {
     setForcast(response.data.daily);
     setLoaded(true);
